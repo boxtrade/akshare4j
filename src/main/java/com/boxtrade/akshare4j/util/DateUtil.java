@@ -6,9 +6,6 @@ import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
-
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 时间格式处理
  *
@@ -16,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
  * @version V2.1
  * @since 2.1.0 2022/11/5 01:28
  */
-@Slf4j
 public class DateUtil {
 
     /**
@@ -61,28 +57,29 @@ public class DateUtil {
     public static String FORMAT_YM = "yyyyMM";
 
     public static Date getDate(String date, String format) {
-        if (StringUtil.hasLength(date) || StringUtil.hasLength(format)) {
+        if (StringUtil.isEmpty(date) || StringUtil.isEmpty(format)) {
             return null;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         try {
             return sdf.parse(date);
         } catch (ParseException e) {
+            e.printStackTrace();
             try {
                 if (date.length() == FORMAT_YMD.length()) {
                     SimpleDateFormat sdf2 = new SimpleDateFormat(FORMAT_YMD);
                     return sdf2.parse(date);
                 }
             } catch (Exception e2) {
+                e2.printStackTrace();
             }
 
-            log.error("{} {} parse error", date, format);
         }
         return null;
     }
 
     public static String getDateString(Date date, String format) {
-        if (date == null || StringUtil.hasLength(format)) {
+        if (date == null || StringUtil.isEmpty(format)) {
             return null;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -114,7 +111,7 @@ public class DateUtil {
      * @return
      */
     public static String getDateEnd(String dateStr) {
-        if (StringUtil.hasLength(dateStr)) {
+        if (StringUtil.isEmpty(dateStr)) {
             return null;
         }
 
@@ -132,7 +129,7 @@ public class DateUtil {
      * @return
      */
     public static String getDateStart(String dateStr) {
-        if (StringUtil.hasLength(dateStr)) {
+        if (StringUtil.isEmpty(dateStr)) {
             return null;
         }
 

@@ -21,4 +21,8 @@ public class StringUtil {
         return (str != null && !str.isEmpty());
     }
 
+    public static boolean isEmpty(String str) {
+        return (str == null || str.isEmpty());
+    }
+
 }

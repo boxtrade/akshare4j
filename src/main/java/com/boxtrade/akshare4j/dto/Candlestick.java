@@ -8,13 +8,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import lombok.Data;
-
 /**
  * Kline/Candlestick bars for a symbol. Klines are uniquely identified by their open time.
  */
 @JsonPropertyOrder()
-@Data
 public class Candlestick {
 
     private Long openTime;
@@ -140,6 +137,46 @@ public class Candlestick {
 
     public void setTakerBuyQuoteAssetVolume(String takerBuyQuoteAssetVolume) {
         this.takerBuyQuoteAssetVolume = takerBuyQuoteAssetVolume;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getSettlementPrice() {
+        return settlementPrice;
+    }
+
+    public void setSettlementPrice(String settlementPrice) {
+        this.settlementPrice = settlementPrice;
+    }
+
+    public String getPositionVolume() {
+        return PositionVolume;
+    }
+
+    public void setPositionVolume(String positionVolume) {
+        PositionVolume = positionVolume;
+    }
+
+    public Duration getCandleDuration() {
+        return candleDuration;
+    }
+
+    public void setCandleDuration(Duration candleDuration) {
+        this.candleDuration = candleDuration;
+    }
+
+    public HashMap<String, String> getIndicator() {
+        return indicator;
+    }
+
+    public void setIndicator(HashMap<String, String> indicator) {
+        this.indicator = indicator;
     }
 
     @Override

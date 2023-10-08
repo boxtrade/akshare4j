@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -32,7 +31,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  * <p>
  * {@link RetrofitUtil#getService(String, Class)}
  */
-@Slf4j
 public class RetrofitUtil {
 
     private static ConcurrentHashMap<String, Retrofit> retrofitMap = new ConcurrentHashMap<>();
@@ -124,10 +122,10 @@ public class RetrofitUtil {
         }
         try {
             Response<T> response = call.execute();
-            log.debug("返回的数据：{}", GsonUtil.toJson(response.body()));
+            // log.debug("返回的数据：{}", GsonUtil.toJson(response.body()));
             return response.body();
         } catch (IOException e) {
-            log.error("接口调用异常", e);
+            // log.error("接口调用异常", e);
             e.printStackTrace();
         }
         return null;
