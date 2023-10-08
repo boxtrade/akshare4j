@@ -1,4 +1,4 @@
-package com.boxtrade;
+package com.boxtrade.akshare4j;
 
 /**
  * Hello world!
